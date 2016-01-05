@@ -25,11 +25,11 @@ module Wikipedia
     client.find_random( options )
   end
 
-  def self.Configure(&block)
+  def self.configure(&block)
     Configuration.instance.instance_eval(&block)
   end
 
-  Configure {
+  configure {
     protocol  'https'
     domain    'en.wikipedia.org'
     path      'w/api.php'
