@@ -19,7 +19,7 @@ module Wikipedia
     end
 
     def redirect?
-      content && content.match(/\#REDIRECT\s*\[\[(.*?)\]\]/i)
+      content && content.match(/\#REDIRECT(ION)\s*\[\[(.*?)\]\]/i)
     end
 
     def redirect_title
