@@ -19,6 +19,7 @@ module Wikipedia
     end
 
     def redirect?
+      # TODO: Make this to work with any language (other than english and french)
       content && content.match(/\#REDIRECT(ION)\s*\[\[(.*?)\]\]/i)
     end
 
