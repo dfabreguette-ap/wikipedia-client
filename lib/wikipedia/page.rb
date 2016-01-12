@@ -13,7 +13,7 @@ module Wikipedia
     end
 
     def content
-      page['revisions'].first['*'] if page['revisions']
+      page['revisions'].first['*'] if page and page['revisions']
     end
 
     def sanitized_content
@@ -21,8 +21,14 @@ module Wikipedia
     end
 
     def redirect?
+      is_a_redirect = false
+
       # TODO: Make this to work with any language (other than english and french)
-      content && content.match(/\#REDIRECT(ION)?\s*\[\[(.*?)\]\]/i)
+      if content and m = content.match(/\#REDIRECT(ION)?\s*\[\[(.*?)\]\]/i) and m.size == 3
+        is_a_redirect = [m[2]] # Should return matched title in index 1
+      end
+
+      is_a_redirect
     end
 
     def redirect_title
