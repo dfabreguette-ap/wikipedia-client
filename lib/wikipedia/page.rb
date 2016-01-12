@@ -25,7 +25,7 @@ module Wikipedia
 
       # TODO: Make this to work with any language (other than english and french)
       if content and m = content.match(/\#REDIRECT(ION)?\s*\[\[(.*?)\]\]/i) and m.size == 3
-        is_a_redirect = [m[2]] # Should return matched title in index 1
+        is_a_redirect = [nil, m[2]] # Should return matched title in index 1
       end
 
       is_a_redirect
